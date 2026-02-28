@@ -153,10 +153,10 @@
             showMsg('Creating account...', 'yellow');
 
             try {
-                const response = await fetch('http://localhost:3300/student/Register', {
+                const response = await fetch('/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: fullName, email, password })
+                    body: JSON.stringify({ username: fullName, password })
                 });
 
                 if (response.ok) {
