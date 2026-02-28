@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Glass morph background layer */
+        body {
+            background: #0d0d1a;
+            overflow: hidden;
+        }
+
+        #bg-root {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Keep existing content above the background */
+        .form-box {
+            position: relative;
+            z-index: 10;
+
+            /* Glassmorphism */
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            padding: 40px 50px;
+            max-width: 380px;
+            margin: auto;
+            color: #fff;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn-group a {
+            padding: 10px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        .btn-group .btn-login {
+            background: #4CAF50;
+        }
+
+        .btn-group .btn-login:hover {
+            background: #45a049;
+        }
+
+        .btn-group .btn-signup {
+            background: #2196F3;
+        }
+
+        .btn-group .btn-signup:hover {
+            background: #1976D2;
+        }
+
+        h2 {
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-box" style="text-align: center;">
+        <h2>Welcome!</h2>
+        <p>Please login or create an account.</p>
+        <div class="btn-group">
+            <a href="login.html" class="btn-login">Login</a>
+            <a href="signup.html" class="btn-signup">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Glass Morph Background (React) -->
+    <div id="bg-root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src=""></script>
+</body>
+
+</html>
