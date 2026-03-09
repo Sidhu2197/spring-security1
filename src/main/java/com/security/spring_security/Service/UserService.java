@@ -19,4 +19,8 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return repo.save(user);
     }
+
+    public User findByUsername(String username) {
+        return repo.findByUsername(username);
+    }
 }
