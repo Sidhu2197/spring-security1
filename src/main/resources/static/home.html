@@ -83,10 +83,30 @@
     <div id="bg-root"></div>
 
     <div class="home-card">
-        <h1>👋 Welcome Home!</h1>
+        <h1>👋 Welcome Home, <span id="displayUsername"></span>!</h1>
         <p>You're successfully logged in.</p>
-        <a href="login.html" class="btn-logout">Log Out</a>
+
+        <div id="profileInfo" style="margin: 20px 0; text-align: left;">
+            <h3 style="margin-bottom: 10px;">📋 Your Profile</h3>
+            <p>🎂 Age: <span id="displayAge">-</span></p>
+            <p>📏 Height: <span id="displayHeight">-</span> cm</p>
+            <p>⚖️ Weight: <span id="displayWeight">-</span> kg</p>
+        </div>
+
+        <a href="login.html" class="btn-logout" onclick="sessionStorage.clear()">Log Out</a>
     </div>
+
+    <script>
+        const profile = JSON.parse(sessionStorage.getItem('userProfile') || '{}');
+        if (profile.username) {
+            document.getElementById('displayUsername').textContent = profile.username;
+            document.getElementById('displayAge').textContent = profile.age || '-';
+            document.getElementById('displayHeight').textContent = profile.height || '-';
+            document.getElementById('displayWeight').textContent = profile.weight || '-';
+        } else {
+            window.location.href = 'login.html';
+        }
+    </script>
 
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>

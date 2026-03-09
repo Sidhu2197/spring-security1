@@ -134,6 +134,8 @@
                 });
 
                 if (response.ok) {
+                    const data = await response.json();
+                    sessionStorage.setItem('userProfile', JSON.stringify(data));
                     showMsg('Logging in… Redirecting!', 'green');
                     setTimeout(() => window.location.href = 'home.html', 1500);
                 } else {
